@@ -4,8 +4,12 @@ import pandas as pd
 import numpy as np
 
 # Load the model and data
-model = pickle.load(open('LinearRegressionModel.pkl', 'rb'))
-car = pd.read_csv('Cleaned_Car_data.csv')
+base_path = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(base_path, 'LinearRegressionModel.pkl')
+data_path = os.path.join(base_path, 'Cleaned_Car_data.csv')
+
+model = pickle.load(open(model_path, 'rb'))
+car = pd.read_csv(data_path)
 
 # Create a Streamlit app
 st.title('Car Price Predictor')
